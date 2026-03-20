@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #004aad, #007bff);
+    color: white;
+    text-align: center;
+}
+
+.container {
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.logo {
+    width: 100px;
+    margin: 20px 0;
+}
+
+.description {
+    font-size: 15px;
+    max-width: 300px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.main-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: white;
+    color: #004aad;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.main-btn:hover {
+    background: #ddd;
+}
