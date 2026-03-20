@@ -48,3 +48,24 @@ h1 {
 .main-btn:hover {
     background: #ddd;
 }
+.menu {
+    margin-top: 30px;
+}
+
+.menu button {
+    display: block;
+    width: 85%;
+    margin: 12px auto;
+    padding: 15px;
+    font-size: 16px;
+    background: white;
+    color: #004aad;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.menu button:hover {
+    background: #ddd;
+}
