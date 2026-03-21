@@ -69,3 +69,13 @@ h1 {
 .menu button:hover {
     background: #ddd;
 }
+.portal-container {
+    background: white;
+    color: #004aad;
+    margin: 40px auto;
+    padding: 25px;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
