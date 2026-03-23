@@ -59,3 +59,37 @@ body {
     from {opacity: 0; transform: translateY(20px);}
     to {opacity: 1; transform: translateY(0);}
 }
+/* PORTAL LOGO FIX */
+.portal-logo {
+    width: 80px;
+    margin: 10px auto;
+    display: block;
+}
+
+/* PORTAL BUTTONS */
+.portal-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* BUTTON IMPROVEMENT */
+.portal-buttons button {
+    width: 85%;
+    max-width: 300px;
+    padding: 12px;
+    margin: 8px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    background: #ffcc00;
+    color: black;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* BUTTON HOVER */
+.portal-buttons button:hover {
+    transform: scale(1.05);
+}
