@@ -1,30 +1,45 @@
 function saveResult() {
+
     let name = document.getElementById("studentName").value;
     let studentClass = document.getElementById("studentClass").value;
-    let ca1 = Number(document.getElementById("ca1").value);
-    let ca2 = Number(document.getElementById("ca2").value);
-    let exam = Number(document.getElementById("exam").value);
 
     if (!name) {
         alert("Enter student name");
         return;
     }
 
-    let total = ca1 + ca2 + exam;
+    function getTotal(prefix) {
+        let ca1 = Number(document.getElementById(prefix + "_ca1").value) || 0;
+        let ca2 = Number(document.getElementById(prefix + "_ca2").value) || 0;
+        let exam = Number(document.getElementById(prefix + "_exam").value) || 0;
+        return { ca1, ca2, exam, total: ca1 + ca2 + exam };
+    }
+
+    let subjects = {
+        English: getTotal("eng"),
+        Mathematics: getTotal("math"),
+        Science: getTotal("sci"),
+        Civic: getTotal("civ")
+    };
+
+    let totalScore = 0;
+    let count = 0;
+
+    for (let sub in subjects) {
+        totalScore += subjects[sub].total;
+        count++;
+    }
+
+    let average = totalScore / count;
 
     let result = {
-        name: name,
+        name,
         class: studentClass,
-        ca1: ca1,
-        ca2: ca2,
-        exam: exam,
-        total: total
+        subjects,
+        average
     };
 
     localStorage.setItem("studentResult_" + name, JSON.stringify(result));
 
-    alert("Result saved successfully!");
+    alert("Full result saved successfully!");
 }
-let allResults = JSON.parse(localStorage.getItem("allResults")) || [];
-allResults.push(result);
-localStorage.setItem("allResults", JSON.stringify(allResults));
