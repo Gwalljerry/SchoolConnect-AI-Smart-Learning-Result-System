@@ -26,21 +26,6 @@
     window.location.href = "portal.html";
 }>
 
-function loginAdmin() {
-    let pass = document.getElementById("adminPass").value;
-
-    if (pass === "admin123") {
-        document.getElementById("adminArea").style.display = "block";
-    } else {
-        alert("Wrong password");
-    }
-}
-
-function approve() {
-    localStorage.setItem("teacherApproved", "true");
-    alert("Teacher Approved!");
-}
-
 </script>
 
 </body>
