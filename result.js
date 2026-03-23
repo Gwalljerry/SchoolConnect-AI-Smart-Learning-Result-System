@@ -109,3 +109,13 @@ let adviceBox = document.createElement("p");
 adviceBox.innerText = "Advice: " + advice;
 
 document.querySelector(".portal-container").appendChild(adviceBox);
+let all = JSON.parse(localStorage.getItem("allResults")) || [];
+
+all.sort((a, b) => b.total - a.total);
+
+let position = all.findIndex(r => r.name === name) + 1;
+
+let pos = document.createElement("h3");
+pos.innerText = "Position: " + position;
+
+document.querySelector(".portal-container").appendChild(pos);
