@@ -12,12 +12,42 @@ document.getElementById("studentInfo").innerText =
 
 
 // Sample subjects (we will upgrade later)
-let subjects = [
-    { name: "English", ca1: 15, ca2: 10, exam: 50 },
-    { name: "Mathematics", ca1: 10, ca2: 15, exam: 45 },
-    { name: "Biology", ca1: 12, ca2: 12, exam: 40 },
-    { name: "Civic Education", ca1: 14, ca2: 13, exam: 42 }
-];
+let saved = JSON.parse(localStorage.getItem("studentResult_" + name));
+
+if (!saved) {
+    alert("No result found");
+} else {
+
+    let table = document.getElementById("resultTable");
+
+    let row = `
+        <tr>
+            <td>General</td>
+            <td>${saved.ca1}</td>
+            <td>${saved.ca2}</td>
+            <td>${saved.exam}</td>
+            <td>${saved.total}</td>
+        </tr>
+    `;
+
+    table.innerHTML += row;
+
+    let average = saved.total;
+
+    document.getElementById("average").innerText =
+        "Total Score: " + average;
+
+    let grade = "";
+
+    if (average >= 75) grade = "A";
+    else if (average >= 60) grade = "B";
+    else if (average >= 50) grade = "C";
+    else if (average >= 40) grade = "D";
+    else grade = "F";
+
+    document.getElementById("grade").innerText =
+        "Grade: " + grade;
+}
 
 let table = document.getElementById("resultTable");
 
