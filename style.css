@@ -98,3 +98,35 @@ button:hover {
     color: white;
     width: 90%;
 }
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.tagline {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.main-btn {
+    padding: 12px 25px;
+    font-size: 16px;
+    background: white;
+    color: #004aad;
+    border: none;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.features {
+    margin-top: 40px;
+}
+
+.card {
+    background: white;
+    color: black;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+}
