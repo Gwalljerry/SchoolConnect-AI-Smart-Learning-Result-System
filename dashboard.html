@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Student Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,14 +15,46 @@
     <p id="welcome"></p>
     <p id="class"></p>
 
+    <h3>📈 Performance</h3>
+    <p id="performance"></p>
+
+    <h3>💡 Advice</h3>
+    <p id="advice"></p>
+
 </div>
 
 <script>
+
     let name = localStorage.getItem("studentName");
     let studentClass = localStorage.getItem("studentClass");
 
+    if (!name) {
+        window.location.href = "login.html";
+    }
+
     document.getElementById("welcome").innerText = "Welcome, " + name;
     document.getElementById("class").innerText = "Class: " + studentClass;
+
+    // Fake score for now (we will connect real one later)
+    let score = Math.floor(Math.random() * 100);
+
+    let performance = "";
+    let advice = "";
+
+    if (score >= 75) {
+        performance = "Excellent 🎉";
+        advice = "Keep it up! You are doing very well.";
+    } else if (score >= 50) {
+        performance = "Good 👍";
+        advice = "You can improve with more practice.";
+    } else {
+        performance = "Needs Improvement ⚠️";
+        advice = "Focus more on your studies and revise regularly.";
+    }
+
+    document.getElementById("performance").innerText = performance;
+    document.getElementById("advice").innerText = advice;
+
 </script>
 
 </body>
