@@ -1,122 +1,26 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-
     background: linear-gradient(135deg, #004aad, #00c6ff);
 }
-/* MAIN CARD */
-.portal-container {
-    background: white;
-    color: #004aad;
-    margin: 60px auto;
-    padding: 25px;
-    width: 90%;
-    max-width: 400px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
 
-/* LOGO */
-.logo {
-    width: 100px;
-    margin: 15px auto;
-    display: block;
-}
-
-/* MENU */
-.menu {
-    margin-top: 20px;
-}
-
-.menu button {
-    display: block;
-    width: 85%;
-    margin: 12px auto;
-    padding: 15px;
-    font-size: 16px;
-    background: #004aad;
-    color: white;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.menu button:hover {
-    background: #003080;
-    transform: scale(1.05);
-}
-
-/* FOOTER */
-footer {
-    margin-top: 30px;
-    font-size: 12px;
-    color: white;
-}
-.input {
-    display: block;
-    width: 85%;
-    margin: 10px auto;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-}
-#options button {
-    margin: 8px;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background: #004aad;
-    color: white;
-}
-table {
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: white;
-    color: black;
-}
-
-th, td {
-    padding: 8px;
-    text-align: center;
-}
-button {
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: scale(1.05);
-}
-.option-btn {
-    margin: 8px;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background: #004aad;
-    color: white;
-    width: 90%;
-}
 .hero {
     text-align: center;
     padding: 40px 20px;
     color: white;
-    .hero h1 {
-    font-size: 28px;
-    font-weight: bold;
-    font-size: 16px;
-.hero {
     animation: fadeIn 1s ease-in;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
+.hero h1 {
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .tagline {
     font-size: 18px;
     margin: 10px 0;
 }
+
 .main-btn {
     padding: 14px 28px;
     font-size: 16px;
@@ -135,14 +39,11 @@ button:hover {
 
 .features {
     margin-top: 40px;
-    .card {
-    background: white;
-    color: black;
-    padding: 15px;
-    margin: 12px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 .card {
     background: white;
     color: black;
@@ -150,4 +51,11 @@ button:hover {
     margin: 12px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 300px;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
 }
