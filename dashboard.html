@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="portal-container">
+
+    <h2>📊 Student Dashboard</h2>
+
+    <p id="welcome"></p>
+    <p id="class"></p>
+
+</div>
+
+<script>
+    let name = localStorage.getItem("studentName");
+    let studentClass = localStorage.getItem("studentClass");
+
+    document.getElementById("welcome").innerText = "Welcome, " + name;
+    document.getElementById("class").innerText = "Class: " + studentClass;
+</script>
+
+</body>
+</html>
