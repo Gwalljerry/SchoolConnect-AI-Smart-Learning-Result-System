@@ -17,19 +17,20 @@ function login() {
 function signup() {
     let name = document.getElementById("newName").value;
     let studentClass = document.getElementById("newClass").value;
+    let admission = document.getElementById("admission").value;
 
-    if (name === "" || studentClass === "") {
+    if (name === "" || studentClass === "" || admission === "") {
         alert("Please fill all fields");
         return;
     }
 
-    // Save user account
     let student = {
-        name: name,
-        class: studentClass
+        name,
+        class: studentClass,
+        admission
     };
 
-    localStorage.setItem("studentAccount", JSON.stringify(student));
+    localStorage.setItem("student_" + admission, JSON.stringify(student));
 
     alert("Account created successfully!");
 
