@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="portal-container">
+
+    <h2>👨‍🏫 Teacher Result Entry</h2>
+
+    <input type="text" id="studentName" placeholder="Student Name" class="input">
+
+    <select id="studentClass" class="input">
+        <option>JS1</option>
+        <option>JS2</option>
+        <option>JS3</option>
+        <option>SS1</option>
+        <option>SS2</option>
+        <option>SS3</option>
+    </select>
+
+    <input type="number" id="ca1" placeholder="CA1" class="input">
+    <input type="number" id="ca2" placeholder="CA2" class="input">
+    <input type="number" id="exam" placeholder="Exam" class="input">
+
+    <button onclick="saveResult()">Save Result</button>
+
+</div>
+
+<script src="teacher.js"></script>
+
+</body>
+</html>
