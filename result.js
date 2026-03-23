@@ -95,3 +95,17 @@ if (average >= 75) {
 
 document.getElementById("grade").innerText =
     "Grade: " + grade;
+let advice = "";
+
+if (average >= 75) {
+    advice = "Excellent performance! Keep it up.";
+} else if (average >= 50) {
+    advice = "Good effort. You can do even better.";
+} else {
+    advice = "Needs improvement. Study harder and practice more.";
+}
+
+let adviceBox = document.createElement("p");
+adviceBox.innerText = "Advice: " + advice;
+
+document.querySelector(".portal-container").appendChild(adviceBox);
