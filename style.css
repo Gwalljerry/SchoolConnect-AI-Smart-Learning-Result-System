@@ -89,3 +89,12 @@ button {
 button:hover {
     transform: scale(1.05);
 }
+.option-btn {
+    margin: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #004aad;
+    color: white;
+    width: 90%;
+}
