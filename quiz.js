@@ -11,46 +11,78 @@ let questions = [
     },
     {
         question: "HTML stands for?",
-        options: ["Hyper Text Markup Language", "High Tech Machine Language", "Home Tool Mark Language", "None"],
+        options: [
+            "Hyper Text Markup Language",
+            "High Tech Machine Language",
+            "Home Tool Mark Language",
+            "None"
+        ],
         answer: "Hyper Text Markup Language"
     }
 ];
 
 let currentIndex = 0;
 let score = 0;
+let selectedAnswer = null;
 
 function loadQuestion() {
     let q = questions[currentIndex];
+
     document.getElementById("question").innerText = q.question;
 
     let optionsHTML = "";
+
     q.options.forEach(opt => {
-        optionsHTML += `<button onclick="checkAnswer('${opt}')">${opt}</button><br>`;
+        optionsHTML += `
+        <button class="option-btn" onclick="selectAnswer(this, '${opt}')">
+            ${opt}
+        </button><br>`;
     });
 
     document.getElementById("options").innerHTML = optionsHTML;
+
+    selectedAnswer = null;
 }
 
-function checkAnswer(selected) {
-    if (selected === questions[currentIndex].answer) {
-        score++;
-    }
+function selectAnswer(button, value) {
+    selectedAnswer = value;
+
+    // remove previous selection
+    let all = document.querySelectorAll(".option-btn");
+    all.forEach(btn => btn.style.background = "#004aad");
+
+    // highlight selected
+    button.style.background = "green";
 }
 
 function nextQuestion() {
+
+    if (selectedAnswer === null) {
+        alert("Please select an answer");
+        return;
+    }
+
+    if (selectedAnswer === questions[currentIndex].answer) {
+        score++;
+    }
+
     currentIndex++;
 
     if (currentIndex < questions.length) {
         loadQuestion();
     } else {
+
         document.getElementById("quiz-box").style.display = "none";
-        document.getElementById("result").innerText = "Your Score: " + score;
 
-        // Save score
-let total = questions.length;
+        let total = questions.length;
 
-// Save both score and total
-localStorage.setItem("lastScore", score);
-localStorage.setItem("totalQuestions", total);        
+        document.getElementById("result").innerText =
+            "Your Score: " + score + " / " + total;
+
+        // SAVE RESULT
+        localStorage.setItem("lastScore", score);
+        localStorage.setItem("totalQuestions", total);
+    }
+}
 
 loadQuestion();
