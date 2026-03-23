@@ -50,3 +50,11 @@ function saveResult() {
 localStorage.setItem("result_" + admission, JSON.stringify(result));
     alert("Full result saved successfully!");
 }
+let admission = prompt("Enter Student Admission Number");
+
+let student = localStorage.getItem("student_" + admission);
+
+if (!student) {
+    alert("Student not found. Ask student to register first.");
+    return;
+}
