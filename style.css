@@ -55,3 +55,11 @@ footer {
     font-size: 12px;
     color: white;
 }
+.input {
+    display: block;
+    width: 85%;
+    margin: 10px auto;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
