@@ -1,17 +1,17 @@
 function login() {
-    let name = document.getElementById("name").value;
-    let studentClass = document.getElementById("class").value;
+    let admission = document.getElementById("admission").value;
 
-    if (name === "" || studentClass === "") {
-        alert("Please fill all fields");
+    let saved = JSON.parse(localStorage.getItem("student_" + admission));
+
+    if (!saved) {
+        alert("Invalid Admission Number");
         return;
     }
 
-    // Save to localStorage
-    localStorage.setItem("studentName", name);
-    localStorage.setItem("studentClass", studentClass);
+    localStorage.setItem("studentName", saved.name);
+    localStorage.setItem("studentClass", saved.class);
+    localStorage.setItem("studentAdmission", admission);
 
-    // Redirect to dashboard
     window.location.href = "dashboard.html";
 }
 function signup() {
