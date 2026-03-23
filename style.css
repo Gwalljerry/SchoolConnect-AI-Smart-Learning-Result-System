@@ -63,3 +63,11 @@ footer {
     border-radius: 8px;
     border: 1px solid #ccc;
 }
+#options button {
+    margin: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #004aad;
+    color: white;
+}
