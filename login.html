@@ -1,21 +1,41 @@
-function login() {
-    let name = document.getElementById("name").value;
-    let studentClass = document.getElementById("class").value;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    let saved = JSON.parse(localStorage.getItem("studentAccount"));
+<div class="portal-container">
 
-    if (!saved) {
-        alert("No account found. Please sign up.");
-        return;
-    }
+    <h2>👨‍🎓 Student Login</h2>
 
-    if (name === saved.name && studentClass === saved.class) {
-        localStorage.setItem("studentName", name);
-        localStorage.setItem("studentClass", studentClass);
+    <!-- Name Input -->
+    <input type="text" id="name" placeholder="Enter your name" class="input">
 
-        window.location.href = "dashboard.html";
-    } else {
-        alert("Invalid login details");
-    }
-}
-<p>No account? <a href="signup.html">Sign Up</a></p>
+    <!-- Class Selection -->
+    <select id="class" class="input">
+        <option value="">Select Class</option>
+        <option>JS1</option>
+        <option>JS2</option>
+        <option>JS3</option>
+        <option>SS1</option>
+        <option>SS2</option>
+        <option>SS3</option>
+    </select>
+
+    <!-- Login Button -->
+    <button onclick="login()">Login</button>
+
+    <!-- Link to Signup -->
+    <p>No account? <a href="signup.html">Sign Up</a></p>
+
+</div>
+
+<!-- Connect JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>
