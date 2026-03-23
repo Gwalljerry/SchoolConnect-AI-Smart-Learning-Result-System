@@ -71,3 +71,14 @@ footer {
     background: #004aad;
     color: white;
 }
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    color: black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
