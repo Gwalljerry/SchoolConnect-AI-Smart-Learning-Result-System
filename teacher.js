@@ -25,3 +25,6 @@ function saveResult() {
 
     alert("Result saved successfully!");
 }
+let allResults = JSON.parse(localStorage.getItem("allResults")) || [];
+allResults.push(result);
+localStorage.setItem("allResults", JSON.stringify(allResults));
