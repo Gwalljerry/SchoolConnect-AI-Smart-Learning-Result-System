@@ -1,3 +1,9 @@
+let approved = localStorage.getItem("teacherApproved");
+
+if (approved !== "true") {
+    alert("Access denied. Admin approval required.");
+    window.location.href = "portal.html";
+}
 function saveResult() {
 
     let name = document.getElementById("studentName").value;
