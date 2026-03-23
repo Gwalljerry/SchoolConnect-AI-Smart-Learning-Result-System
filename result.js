@@ -1,4 +1,14 @@
-let name = localStorage.getItem("studentName");
+function checkResult() {
+
+let admission = document.getElementById("checkAdmission").value;
+
+let saved = JSON.parse(localStorage.getItem("result_" + admission));
+
+if (!saved) {
+    alert("No result found");
+    return;
+}
+    let name = localStorage.getItem("studentName");
 let studentClass = localStorage.getItem("studentClass");
 
 if (!name) {
