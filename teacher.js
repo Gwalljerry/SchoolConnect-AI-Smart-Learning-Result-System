@@ -45,7 +45,8 @@ function saveResult() {
         average
     };
 
-    localStorage.setItem("studentResult_" + name, JSON.stringify(result));
+    let admission = prompt("Enter Student Admission Number");
 
+localStorage.setItem("result_" + admission, JSON.stringify(result));
     alert("Full result saved successfully!");
 }
