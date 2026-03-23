@@ -1,23 +1,31 @@
-/* Container card */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #004aad, #007bff);
+    color: white;
+    text-align: center;
+}
+
+/* MAIN CARD */
 .portal-container {
     background: white;
     color: #004aad;
-    margin: 40px auto;
+    margin: 60px auto;
     padding: 25px;
     width: 90%;
     max-width: 400px;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
 
-/* Logo */
+/* LOGO */
 .logo {
-    width: 120px;
-    margin: 15px auto 25px auto;
+    width: 100px;
+    margin: 15px auto;
     display: block;
 }
 
-/* Menu buttons */
+/* MENU */
 .menu {
     margin-top: 20px;
 }
@@ -28,24 +36,22 @@
     margin: 12px auto;
     padding: 15px;
     font-size: 16px;
-    background: white;
-    color: #004aad;
+    background: #004aad;
+    color: white;
     border: none;
     border-radius: 12px;
     cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
     transition: 0.3s;
 }
 
 .menu button:hover {
-    background: #ddd;
+    background: #003080;
     transform: scale(1.05);
 }
 
-/* Footer */
+/* FOOTER */
 footer {
     margin-top: 30px;
     font-size: 12px;
     color: white;
-    text-align: center;
 }
