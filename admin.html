@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="portal-container">
+
+<h2>🔐 Admin Panel</h2>
+
+<input type="password" id="adminPass" placeholder="Enter Admin Password" class="input">
+
+<button onclick="loginAdmin()">Login</button>
+
+<div id="adminArea" style="display:none;">
+
+    <h3>Teacher Approval</h3>
+
+    <button onclick="approve()">Approve Teacher</button>
+
+</div>
+
+</div>
+
+<script>
+
+function loginAdmin() {
+    let pass = document.getElementById("adminPass").value;
+
+    if (pass === "admin123") {
+        document.getElementById("adminArea").style.display = "block";
+    } else {
+        alert("Wrong password");
+    }
+}
+
+function approve() {
+    localStorage.setItem("teacherApproved", "true");
+    alert("Teacher Approved!");
+}
+
+</script>
+
+</body>
+</html>
