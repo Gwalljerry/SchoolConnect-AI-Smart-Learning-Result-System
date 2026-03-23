@@ -15,6 +15,9 @@
     <p id="welcome"></p>
     <p id="class"></p>
 
+    <h3>🧠 Last CBT Result</h3>
+    <p id="score"></p>
+
     <h3>📈 Performance</h3>
     <p id="performance"></p>
 
@@ -28,6 +31,9 @@
     let name = localStorage.getItem("studentName");
     let studentClass = localStorage.getItem("studentClass");
 
+    let score = localStorage.getItem("lastScore");
+    let total = localStorage.getItem("totalQuestions");
+
     if (!name) {
         window.location.href = "login.html";
     }
@@ -35,25 +41,32 @@
     document.getElementById("welcome").innerText = "Welcome, " + name;
     document.getElementById("class").innerText = "Class: " + studentClass;
 
-    // Fake score for now (we will connect real one later)
-    let score = Math.floor(Math.random() * 100);
-
-    let performance = "";
-    let advice = "";
-
-    if (score >= 75) {
-        performance = "Excellent 🎉";
-        advice = "Keep it up! You are doing very well.";
-    } else if (score >= 50) {
-        performance = "Good 👍";
-        advice = "You can improve with more practice.";
+    // If no test taken
+    if (!score) {
+        document.getElementById("score").innerText = "No test taken yet.";
     } else {
-        performance = "Needs Improvement ⚠️";
-        advice = "Focus more on your studies and revise regularly.";
-    }
 
-    document.getElementById("performance").innerText = performance;
-    document.getElementById("advice").innerText = advice;
+        document.getElementById("score").innerText = score + " / " + total;
+
+        let percent = (score / total) * 100;
+
+        let performance = "";
+        let advice = "";
+
+        if (percent >= 75) {
+            performance = "Excellent 🎉";
+            advice = "Outstanding performance! Keep pushing forward.";
+        } else if (percent >= 50) {
+            performance = "Good 👍";
+            advice = "You're doing well, but more practice will help you improve.";
+        } else {
+            performance = "Needs Improvement ⚠️";
+            advice = "You need to focus more. Practice regularly and revise your notes.";
+        }
+
+        document.getElementById("performance").innerText = performance;
+        document.getElementById("advice").innerText = advice;
+    }
 
 </script>
 
