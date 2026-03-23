@@ -1,6 +1,6 @@
 function checkResult() {
 
-let admission = document.getElementById("checkAdmission").value;
+let admission = localStorage.getItem("studentAdmission");
 
 let saved = JSON.parse(localStorage.getItem("result_" + admission));
 
