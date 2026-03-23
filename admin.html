@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Panel</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="portal-container">
@@ -14,17 +17,38 @@
 
 <button onclick="loginAdmin()">Login</button>
 
-<div id="adminArea" style="display:none;">
+<div id="adminArea" style="display:none; margin-top:20px;">
 
-    <h3>Teacher Approval</h3>
+    <h3>👨‍🏫 Teacher Control</h3>
 
     <button onclick="approve()">Approve Teacher</button>
-<button onclick="logout()">Logout</button>
+
+    <button onclick="logout()">Logout</button>
+
 </div>
 
-<function logout() {
+</div>
+
+<script>
+
+function loginAdmin() {
+    let pass = document.getElementById("adminPass").value;
+
+    if (pass === "gwall2026") {
+        document.getElementById("adminArea").style.display = "block";
+    } else {
+        alert("Wrong password");
+    }
+}
+
+function approve() {
+    localStorage.setItem("teacherApproved", "true");
+    alert("Teacher Approved!");
+}
+
+function logout() {
     window.location.href = "portal.html";
-}>
+}
 
 </script>
 
