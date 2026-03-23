@@ -13,9 +13,13 @@ document.getElementById("studentInfo").innerText =
 
 // Sample subjects (we will upgrade later)
 let saved = JSON.parse(localStorage.getItem("studentResult_" + name));
-
 if (!saved) {
-    alert("No result found");
+    document.getElementById("studentInfo").innerText =
+        "No result available. Please contact your teacher.";
+
+    document.getElementById("resultTable").style.display = "none";
+}
+
 } else {
 
     let table = document.getElementById("resultTable");
