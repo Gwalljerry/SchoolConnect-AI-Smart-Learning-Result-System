@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+function login() {
+    let name = document.getElementById("name").value;
+    let studentClass = document.getElementById("class").value;
 
-<div class="portal-container">
+    let saved = JSON.parse(localStorage.getItem("studentAccount"));
 
-    <h2>👨‍🎓 Student Login</h2>
+    if (!saved) {
+        alert("No account found. Please sign up.");
+        return;
+    }
 
-    <input type="text" id="name" placeholder="Enter your name" class="input">
+    if (name === saved.name && studentClass === saved.class) {
+        localStorage.setItem("studentName", name);
+        localStorage.setItem("studentClass", studentClass);
 
-    <select id="class" class="input">
-        <option value="">Select Class</option>
-        <option>JS1</option>
-        <option>JS2</option>
-        <option>JS3</option>
-        <option>SS1</option>
-        <option>SS2</option>
-        <option>SS3</option>
-    </select>
-
-    <button onclick="login()">Login</button>
-
-</div>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Invalid login details");
+    }
+}
