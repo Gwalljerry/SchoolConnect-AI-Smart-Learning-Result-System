@@ -47,8 +47,10 @@ function nextQuestion() {
         document.getElementById("result").innerText = "Your Score: " + score;
 
         // Save score
-        localStorage.setItem("lastScore", score);
-    }
-}
+let total = questions.length;
+
+// Save both score and total
+localStorage.setItem("lastScore", score);
+localStorage.setItem("totalQuestions", total);        
 
 loadQuestion();
