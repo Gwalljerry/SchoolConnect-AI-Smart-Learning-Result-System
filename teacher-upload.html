@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Result Upload - SchoolConnect AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="upload-container">
+
+  <h1>Upload Student Result</h1>
+
+  <table class="result-table">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>CA1</th>
+        <th>CA2</th>
+        <th>Exam</th>
+        <th>Total</th>
+        <th>Average</th>
+        <th>Grade</th>
+        <th>Remark</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" placeholder="Student Name"></td>
+        <td><input type="number" class="ca1" oninput="calculateRow(this)"></td>
+        <td><input type="number" class="ca2" oninput="calculateRow(this)"></td>
+        <td><input type="number" class="exam" oninput="calculateRow(this)"></td>
+        <td><input type="number" class="total" readonly></td>
+        <td><input type="number" class="average" readonly></td>
+        <td><input type="text" class="grade" readonly></td>
+        <td><input type="text" class="remark" readonly></td>
+      </tr>
+
+      <!-- Add more rows as needed -->
+
+    </tbody>
+  </table>
+
+</div>
+
+<script src="teacher-upload.js"></script>
+</body>
+</html>
