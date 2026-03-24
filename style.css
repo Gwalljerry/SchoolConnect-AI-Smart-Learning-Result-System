@@ -108,3 +108,57 @@ p {
     flex-direction: column;
     align-items: center;
 }
+/* HERO CENTER */
+.hero {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* WHITE CURVED CARD */
+.hero-card {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 350px;
+    margin: 0 auto;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* TEXT */
+.hero-card h1 {
+    color: #004aad;
+}
+
+.tagline {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+/* BUTTON */
+.main-btn {
+    padding: 12px 25px;
+    margin-top: 15px;
+    border-radius: 25px;
+    background: #004aad;
+    color: white;
+    border: none;
+}
+
+/* FEATURES */
+.features {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
