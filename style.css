@@ -183,3 +183,46 @@ body {
   border: none;
   cursor: pointer;
 }
+/* CBT PAGE */
+.cbt-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+.question-box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  margin-top: 30px;
+}
+
+.question-box .options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.question-box .options button {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #0a2a66;
+  color: white;
+  font-weight: bold;
+}
+
+.question-box .options button:hover {
+  background: #004aad;
+}
+
+.cbt-footer {
+  text-align: right;
+  margin-top: 10px;
+  font-weight: bold;
+}
