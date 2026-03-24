@@ -1,38 +1,17 @@
-function login() {
-    let admission = document.getElementById("admission").value;
+function loginUser(event) {
+  event.preventDefault();
 
-    let saved = JSON.parse(localStorage.getItem("student_" + admission));
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
 
-    if (!saved) {
-        alert("Invalid Admission Number");
-        return;
-    }
-
-    localStorage.setItem("studentName", saved.name);
-    localStorage.setItem("studentClass", saved.class);
-    localStorage.setItem("studentAdmission", admission);
-
+  // SIMPLE DEMO LOGIN
+  if (username === "admin" && password === "1234") {
     window.location.href = "dashboard.html";
-}
-function signup() {
-    let name = document.getElementById("newName").value;
-    let studentClass = document.getElementById("newClass").value;
-    let admission = document.getElementById("admission").value;
-
-    if (name === "" || studentClass === "" || admission === "") {
-        alert("Please fill all fields");
-        return;
-    }
-
-    let student = {
-        name,
-        class: studentClass,
-        admission
-    };
-
-    localStorage.setItem("student_" + admission, JSON.stringify(student));
-
-    alert("Account created successfully!");
-
-    window.location.href = "login.html";
+  } 
+  else if (username === "student" && password === "1234") {
+    alert("Student login successful");
+  } 
+  else {
+    document.getElementById("error").innerText = "Invalid login details!";
+  }
 }
