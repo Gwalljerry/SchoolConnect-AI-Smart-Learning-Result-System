@@ -2,94 +2,68 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #004aad, #00c6ff);
-}
 
-.hero {
-    text-align: center;
-    padding: 40px 20px;
-    color: white;
-    animation: fadeIn 1s ease-in;
-}
-
-.hero h1 {
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.tagline {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-.main-btn {
-    padding: 14px 28px;
-    font-size: 16px;
-    background: #ffcc00;
-    color: black;
-    border: none;
-    border-radius: 25px;
-    margin-top: 15px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.main-btn:hover {
-    transform: scale(1.05);
-}
-
-.features {
-    margin-top: 40px;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    min-height: 100vh;
 }
 
-.card {
-    background: white;
-    color: black;
-    padding: 15px;
-    margin: 12px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+/* MAIN CONTAINER */
+.portal-container {
     width: 90%;
-    max-width: 300px;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-/* PORTAL LOGO FIX */
-.portal-logo {
-    width: 80px;
-    margin: 10px auto;
-    display: block;
+/* INPUT */
+.input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
-/* PORTAL BUTTONS */
-.portal-buttons {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* BUTTON IMPROVEMENT */
-.portal-buttons button {
-    width: 85%;
-    max-width: 300px;
+/* BUTTON */
+button {
+    width: 90%;
     padding: 12px;
-    margin: 8px;
-    font-size: 16px;
+    margin: 8px 0;
     border-radius: 10px;
     border: none;
-    background: #ffcc00;
-    color: black;
-    font-weight: bold;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    background: #004aad;
+    color: white;
+    font-size: 15px;
 }
 
-/* BUTTON HOVER */
-.portal-buttons button:hover {
-    transform: scale(1.05);
+button:hover {
+    transform: scale(1.03);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/* OPTIONS */
+.option-btn {
+    width: 90%;
+    margin: 6px;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #004aad;
+    color: white;
 }
