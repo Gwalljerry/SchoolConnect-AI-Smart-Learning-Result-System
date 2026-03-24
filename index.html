@@ -3,203 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SchoolConnect AI | Professional Result Management</title>
+    <title>SchoolConnect AI | Enterprise Result System</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-        .gradient-brand { background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); }
-        .input-focus:focus { border-color: #2563eb; ring: 2px; ring-color: #dbeafe; transition: all 0.2s; }
-        @media print { .no-print { display: none !important; } .print-area { display: block !important; padding: 0; margin: 0; } }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .gradient-brand { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .accent-gradient { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        @media print { .no-print { display: none !important; } .print-area { display: block !important; border: none !important; box-shadow: none !important; } }
+        .waec-a { color: #059669; } .waec-c { color: #d97706; } .waec-f { color: #dc2626; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 min-h-screen">
+<body class="bg-slate-100 text-slate-900 min-h-screen">
 
-    <!-- TOP NAVIGATION -->
-    <nav class="no-print bg-white border-b border-slate-200 sticky top-0 z-50 px-6 py-4">
+    <!-- NAVIGATION BAR -->
+    <nav class="no-print sticky top-0 z-50 glass-panel border-b border-slate-200 px-6 py-3">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-12 h-12 gradient-brand rounded-2xl flex items-center justify-center text-white shadow-xl">
-                    <i data-lucide="shield-check"></i>
+                <div class="w-10 h-10 accent-gradient rounded-xl flex items-center justify-center text-white shadow-lg">
+                    <i data-lucide="database"></i>
                 </div>
                 <div>
-                    <h1 class="text-2xl font-black text-blue-900 leading-none">SchoolConnect <span class="text-blue-600">AI</span></h1>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Smart Academic Management</p>
+                    <h1 class="text-xl font-black text-slate-900 tracking-tight">SchoolConnect <span class="text-blue-600 italic">Enterprise</span></h1>
+                    <p class="text-[8px] font-bold text-slate-400 uppercase tracking-[0.2em]">KY-SMS Database Integrated</p>
                 </div>
             </div>
-            <div class="flex gap-4">
-                <button onclick="switchView('admin')" id="nav-admin" class="px-6 py-2 rounded-xl font-bold text-sm bg-blue-50 text-blue-700">Admin Entry</button>
-                <button onclick="switchView('parent')" id="nav-parent" class="px-6 py-2 rounded-xl font-bold text-sm text-slate-500 hover:bg-slate-100">Parent Check</button>
+            <div class="flex items-center gap-4">
+                <div class="hidden md:flex bg-slate-200/50 p-1 rounded-xl">
+                    <button onclick="switchMode('admin')" id="btn-admin" class="px-5 py-2 rounded-lg font-bold text-xs transition-all bg-white shadow-sm text-blue-700">ADMIN CONSOLE</button>
+                    <button onclick="switchMode('parent')" id="btn-parent" class="px-5 py-2 rounded-lg font-bold text-xs transition-all text-slate-500">PARENT PORTAL</button>
+                </div>
+                <button onclick="window.location.reload()" class="p-2 text-slate-400 hover:text-blue-600 transition-colors"><i data-lucide="refresh-cw" class="w-5 h-5"></i></button>
             </div>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto p-4 md:p-8">
         
-        <!-- ADMIN INPUT: THE TRUE GENERATOR -->
-        <section id="admin-view" class="space-y-8 animate-in fade-in duration-500">
-            <div class="grid lg:grid-cols-12 gap-8">
-                
-                <!-- INPUT COLUMN -->
-                <div class="lg:col-span-5 space-y-6">
-                    <div class="bg-white p-8 rounded-[35px] shadow-2xl border border-slate-100 relative overflow-hidden">
-                        <h2 class="text-xl font-black mb-6 text-slate-800 flex items-center gap-2">
-                            <i data-lucide="edit-3" class="text-blue-600"></i> Result Input Engine
-                        </h2>
+        <!-- ADMIN: RESULT MANAGEMENT -->
+        <section id="admin-view" class="space-y-6 animate-in fade-in slide-in-from-top-4 duration-500">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-4 bg-white p-6 rounded-[30px] shadow-sm border border-slate-200">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 flex-1 w-full">
+                    <div>
+                        <label class="text-[10px] font-black text-slate-400 uppercase mb-1 block italic">Student Name</label>
+                        <input type="text" id="s_name" placeholder="John Doe" class="w-full p-3 rounded-xl bg-slate-50 border border-slate-100 outline-none focus:border-blue-500 font-bold">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-black text-slate-400 uppercase mb-1 block italic">Student ID (KY-SMS)</label>
+                        <input type="text" id="s_id" placeholder="KY/2026/01" class="w-full p-3 rounded-xl bg-slate-50 border border-slate-100 outline-none focus:border-blue-500 font-mono">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-black text-slate-400 uppercase mb-1 block italic">Class/Arm</label>
+                        <select id="s_class" class="w-full p-3 rounded-xl bg-slate-50 border border-slate-100 outline-none focus:border-blue-500 font-bold">
+                            <option>SS 1 GOLD</option>
+                            <option>SS 2 SILVER</option>
+                            <option>SS 3 DIAMOND</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-black text-slate-400 uppercase mb-1 block italic">Academic Term</label>
+                        <select id="s_term" class="w-full p-3 rounded-xl bg-slate-50 border border-slate-100 outline-none focus:border-blue-500 font-bold">
+                            <option>1st Term</option>
+                            <option>2nd Term</option>
+                            <option>3rd Term</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCORE INPUTS -->
+            <div class="grid lg:grid-cols-12 gap-6">
+                <div class="lg:col-span-4 bg-white p-8 rounded-[35px] shadow-xl border border-slate-100">
+                    <h3 class="text-sm font-black mb-6 uppercase tracking-widest text-blue-900 border-b pb-2">Subject Performance</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <span class="w-24 text-xs font-bold text-slate-500">Mathematics</span>
+                            <input type="number" id="m" oninput="calc()" class="flex-1 p-3 rounded-lg bg-slate-50 border border-slate-100 font-black text-center text-blue-600">
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="w-24 text-xs font-bold text-slate-500">English Lang</span>
+                            <input type="number" id="e" oninput="calc()" class="flex-1 p-3 rounded-lg bg-slate-50 border border-slate-100 font-black text-center text-blue-600">
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="w-24 text-xs font-bold text-slate-500">Physics/Sci</span>
+                            <input type="number" id="p" oninput="calc()" class="flex-1 p-3 rounded-lg bg-slate-50 border border-slate-100 font-black text-center text-blue-600">
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="w-24 text-xs font-bold text-slate-500">Civic/Govt</span>
+                            <input type="number" id="c" oninput="calc()" class="flex-1 p-3 rounded-lg bg-slate-50 border border-slate-100 font-black text-center text-blue-600">
+                        </div>
                         
-                        <div class="space-y-4">
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="text-[10px] font-black text-slate-400 uppercase mb-1 block">Full Student Name</label>
-                                    <input type="text" id="stuName" class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 outline-none input-focus font-bold">
-                                </div>
-                                <div>
-                                    <label class="text-[10px] font-black text-slate-400 uppercase mb-1 block">Registration ID</label>
-                                    <input type="text" id="stuID" placeholder="SC/2026/001" class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 outline-none input-focus font-mono uppercase">
-                                </div>
+                        <div class="mt-8 p-6 accent-gradient rounded-3xl text-white shadow-lg">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-[10px] font-black opacity-70">CUMULATIVE AVG</span>
+                                <span class="font-black" id="live-avg">0.0%</span>
                             </div>
-
-                            <hr class="border-slate-100 my-4">
-
-                            <!-- SUBJECTS -->
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="space-y-1">
-                                    <label class="text-[10px] font-black text-slate-500">Mathematics</label>
-                                    <input type="number" id="m" oninput="calculate()" class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 outline-none input-focus font-black text-blue-600">
-                                </div>
-                                <div class="space-y-1">
-                                    <label class="text-[10px] font-black text-slate-500">English Language</label>
-                                    <input type="number" id="e" oninput="calculate()" class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 outline-none input-focus font-black text-blue-600">
-                                </div>
-                                <div class="space-y-1">
-                                    <label class="text-[10px] font-black text-slate-500">Basic Science</label>
-                                    <input type="number" id="s" oninput="calculate()" class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 outline-none input-focus font-black text-blue-600">
-                                </div>
-                                <div class="space-y-1">
-                                    <label class="text-[10px] font-black text-slate-500">Civic Education</label>
-                                    <input type="number" id="c" oninput="calculate()" class="w-full p-4 rounded-xl bg-slate-50 border border-slate-200 outline-none input-focus font-black text-blue-600">
-                                </div>
+                            <div class="flex justify-between">
+                                <span class="text-[10px] font-black opacity-70">WAEC GRADE</span>
+                                <span class="font-black italic" id="live-grade">F9</span>
                             </div>
-
-                            <!-- AUTO CALCULATED SUMMARY -->
-                            <div class="mt-8 p-6 bg-blue-900 rounded-[28px] text-white grid grid-cols-3 gap-4 shadow-xl">
-                                <div class="text-center">
-                                    <p class="text-[8px] uppercase font-black opacity-60 tracking-widest">Total</p>
-                                    <p id="auto-total" class="text-2xl font-black">0</p>
-                                </div>
-                                <div class="text-center border-x border-white/10">
-                                    <p class="text-[8px] uppercase font-black opacity-60 tracking-widest">Average</p>
-                                    <p id="auto-avg" class="text-2xl font-black">0.0</p>
-                                </div>
-                                <div class="text-center">
-                                    <p class="text-[8px] uppercase font-black opacity-60 tracking-widest">Remark</p>
-                                    <p id="auto-remark" class="text-xs font-black uppercase">---</p>
-                                </div>
-                            </div>
-
-                            <button onclick="saveRecord()" class="w-full py-5 gradient-brand text-white rounded-2xl font-black text-lg shadow-2xl shadow-blue-200 hover:scale-[1.02] transition-all flex items-center justify-center gap-3">
-                                <i data-lucide="save"></i> Finalize & Post Result
-                            </button>
                         </div>
+
+                        <button onclick="saveToSMS()" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-black shadow-xl hover:bg-blue-600 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="upload-cloud"></i> PUSH TO DATABASE
+                        </button>
                     </div>
                 </div>
 
-                <!-- TABLE COLUMN -->
-                <div class="lg:col-span-7">
-                    <div class="bg-white rounded-[35px] shadow-sm border border-slate-200 overflow-hidden flex flex-col h-full min-h-[600px]">
-                        <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                            <h3 class="font-black text-slate-800 uppercase text-xs tracking-widest">Master Result Ledger</h3>
-                            <button onclick="clearDB()" class="text-[10px] font-black text-rose-500 uppercase hover:underline">Reset Data</button>
+                <!-- BROADSHEET LEDGER -->
+                <div class="lg:col-span-8 bg-white rounded-[35px] shadow-sm border border-slate-200 overflow-hidden flex flex-col">
+                    <div class="p-6 bg-slate-50 border-b border-slate-100 flex justify-between items-center">
+                        <h3 class="text-xs font-black text-slate-500 uppercase tracking-widest italic">SMS Master Broadsheet</h3>
+                        <div class="flex gap-2">
+                            <button onclick="exportData()" class="text-[10px] font-black text-blue-600 bg-blue-50 px-3 py-1 rounded-lg">EXPORT CSV</button>
+                            <button onclick="clearAll()" class="text-[10px] font-black text-red-500 bg-red-50 px-3 py-1 rounded-lg">WIPE DB</button>
                         </div>
-                        <div class="overflow-x-auto flex-1">
-                            <table class="w-full text-left">
-                                <thead class="bg-slate-50/50 text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                                    <tr>
-                                        <th class="px-6 py-4">Student</th>
-                                        <th class="px-6 py-4">Total</th>
-                                        <th class="px-6 py-4">Grade</th>
-                                        <th class="px-6 py-4">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="ledgerBody" class="divide-y divide-slate-50 font-bold text-sm">
-                                    <!-- Dynamic rows -->
-                                </tbody>
-                            </table>
-                            <div id="emptyNote" class="p-20 text-center text-slate-300 font-bold uppercase text-xs hidden">No results posted yet</div>
-                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-slate-50 border-b border-slate-100 font-black text-slate-400 uppercase">
+                                <tr>
+                                    <th class="px-6 py-4">Reg ID</th>
+                                    <th class="px-6 py-4">Student</th>
+                                    <th class="px-6 py-4">Term</th>
+                                    <th class="px-6 py-4">Average</th>
+                                    <th class="px-6 py-4">Grade</th>
+                                    <th class="px-6 py-4 text-right">Preview</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sms-body" class="divide-y divide-slate-50 font-bold">
+                                <!-- Records appear here -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PARENT VIEW: CHECKER -->
-        <section id="parent-view" class="hidden max-w-2xl mx-auto py-20 text-center animate-in zoom-in-95 duration-500">
-            <div class="w-24 h-24 gradient-brand text-white rounded-[35px] flex items-center justify-center mx-auto mb-8 shadow-2xl">
-                <i data-lucide="user-search" class="w-12 h-12"></i>
+        <!-- PARENT: PORTAL SEARCH -->
+        <section id="parent-view" class="hidden max-w-xl mx-auto py-24 text-center animate-in zoom-in-95 duration-500">
+            <div class="mb-10 relative">
+                <div class="w-24 h-24 accent-gradient text-white rounded-[38px] flex items-center justify-center mx-auto shadow-2xl animate-bounce">
+                    <i data-lucide="shield-check" class="w-10 h-10"></i>
+                </div>
+                <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white px-4 py-1 rounded-full shadow-sm border border-slate-100 text-[8px] font-black text-blue-600 uppercase italic">Secure Portal</div>
             </div>
-            <h2 class="text-4xl font-black text-blue-900 mb-4">Parent Portal</h2>
-            <p class="text-slate-500 mb-12 font-medium">Verify child academic standing with secure ID verification.</p>
+            <h2 class="text-4xl font-black text-slate-900 mb-2">SchoolConnect</h2>
+            <p class="text-slate-500 font-medium mb-12">Access official academic reports verified by AI.</p>
             
-            <div class="bg-white p-4 rounded-[30px] shadow-2xl border border-blue-50 flex gap-2">
-                <input type="text" id="p-search" placeholder="Enter Registration ID (SC/...)" class="flex-1 p-4 outline-none font-bold text-lg bg-transparent uppercase">
-                <button onclick="parentCheck()" class="bg-slate-900 text-white px-10 rounded-2xl font-black hover:bg-blue-600 transition-all">Check Now</button>
+            <div class="bg-white p-3 rounded-[32px] shadow-2xl border border-blue-100 flex gap-2">
+                <input type="text" id="p_query" placeholder="Enter Registration ID (e.g. KY/2026/01)" class="flex-1 p-5 outline-none font-bold text-lg bg-transparent uppercase">
+                <button onclick="checkResult()" class="bg-slate-900 text-white px-8 rounded-2xl font-black hover:bg-blue-600 transition-all shadow-lg">Check</button>
             </div>
+            <p class="mt-6 text-[10px] font-black text-slate-400 uppercase tracking-widest">Powered by KY-SMS Core Engine</p>
         </section>
 
-        <!-- PRINTABLE REPORT CARD -->
+        <!-- REPORT CARD: AI ENHANCED -->
         <section id="report-card" class="hidden py-8 max-w-4xl mx-auto print-area">
-            <div class="bg-white p-12 rounded-[50px] shadow-2xl border-t-[12px] border-blue-900 relative">
-                <div class="flex justify-between items-start border-b-2 border-slate-100 pb-8 mb-8">
-                    <div class="flex items-center gap-4">
-                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-900">
-                            <i data-lucide="award" class="w-10 h-10"></i>
+            <div class="bg-white p-12 rounded-[60px] shadow-2xl border-4 border-slate-50 relative overflow-hidden">
+                <!-- Branding Header -->
+                <div class="flex flex-col md:flex-row justify-between items-center border-b-2 border-slate-100 pb-10 mb-10">
+                    <div class="flex items-center gap-5">
+                        <div class="w-20 h-20 accent-gradient rounded-3xl flex items-center justify-center text-white shadow-2xl">
+                            <i data-lucide="graduation-cap" class="w-12 h-12"></i>
                         </div>
                         <div>
-                            <h2 class="text-2xl font-black text-blue-900 uppercase">SchoolConnect Academy</h2>
-                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">Official Result Statement</p>
+                            <h2 class="text-3xl font-black text-slate-900 uppercase tracking-tighter">GGSSS <span class="text-blue-600">SMS Portal</span></h2>
+                            <p class="text-xs font-bold text-slate-400 tracking-widest">OFFICIAL STUDENT PROGRESS REPORT</p>
                         </div>
                     </div>
-                    <div class="text-right">
-                        <p class="text-[10px] font-black text-slate-400">SESSION: 2025/2026</p>
-                        <p class="text-xl font-black text-blue-600" id="r-id">#ID</p>
+                    <div class="text-center md:text-right mt-6 md:mt-0">
+                        <div class="bg-slate-900 text-white px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest mb-2" id="r-term">1st Term</div>
+                        <p class="text-2xl font-black text-blue-600" id="r-id">#KY/ID</p>
                     </div>
                 </div>
 
-                <div class="grid md:grid-cols-2 gap-16 mb-12">
-                    <div class="space-y-6">
+                <!-- Academic Content -->
+                <div class="grid lg:grid-cols-5 gap-12">
+                    <div class="lg:col-span-3 space-y-10">
                         <div>
-                            <p class="text-[10px] font-black text-slate-400 uppercase">Student Name</p>
-                            <p class="text-3xl font-black text-slate-900" id="r-name">---</p>
+                            <label class="text-[10px] font-black text-slate-400 uppercase tracking-widest block mb-2">Student Name</label>
+                            <p class="text-4xl font-black text-slate-900 leading-none" id="r-name">Full Student Name</p>
+                            <p class="mt-2 text-sm font-bold text-blue-500 italic" id="r-class">Class: SS 1 GOLD</p>
                         </div>
+
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                                <p class="text-[8px] font-black text-slate-400 uppercase">Grand Total</p>
-                                <p class="text-2xl font-black" id="r-total">0</p>
+                            <div class="p-6 bg-slate-50 rounded-[35px] border border-slate-100">
+                                <p class="text-[10px] font-black text-slate-400 uppercase mb-2">Average Score</p>
+                                <p class="text-4xl font-black text-slate-900" id="r-avg">0.0%</p>
                             </div>
-                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                                <p class="text-[8px] font-black text-slate-400 uppercase">Average %</p>
-                                <p class="text-2xl font-black" id="r-avg">0.0</p>
+                            <div class="p-6 bg-slate-50 rounded-[35px] border border-slate-100">
+                                <p class="text-[10px] font-black text-slate-400 uppercase mb-2">WAEC Grade</p>
+                                <p class="text-4xl font-black" id="r-grade">--</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-blue-50 p-8 rounded-[40px] border border-blue-100">
-                        <div class="flex items-center gap-2 mb-4">
-                            <i data-lucide="bot" class="text-blue-600 w-5 h-5"></i>
-                            <h4 class="text-[10px] font-black text-blue-800 uppercase tracking-widest">AI Auto-Comments</h4>
+                    <!-- AI SIDEPANEL -->
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="bg-blue-600 text-white p-8 rounded-[45px] shadow-2xl shadow-blue-200 relative">
+                            <div class="flex items-center gap-2 mb-4">
+                                <i data-lucide="bot" class="w-5 h-5 text-blue-200"></i>
+                                <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-100">AI Counselor Comment</h4>
+                            </div>
+                            <p id="r-ai" class="text-sm font-medium leading-relaxed italic text-blue-50">Evaluating performance indices based on 3MTT standards...</p>
+                            <div class="mt-8 pt-6 border-t border-white/10">
+                                <p class="text-[10px] font-black text-blue-300 uppercase tracking-widest mb-1">Recommended Pathway</p>
+                                <p id="r-path" class="text-xl font-black">Scanning Potential...</p>
+                            </div>
                         </div>
-                        <p id="r-ai" class="text-sm font-medium leading-relaxed italic text-blue-900">Generating scholastic insight...</p>
-                        <div class="mt-6 pt-6 border-t border-blue-200">
-                            <p class="text-[10px] font-black text-blue-400 uppercase">3MTT Pathway</p>
-                            <p id="r-path" class="font-black text-blue-900">Pending Evaluation</p>
-                        </div>
+                        <button onclick="window.print()" class="no-print w-full py-5 bg-slate-900 text-white rounded-3xl font-black shadow-xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="printer"></i> PRINT OFFICIAL COPY
+                        </button>
                     </div>
                 </div>
 
-                <div class="no-print flex gap-4">
-                    <button onclick="window.print()" class="flex-1 py-4 bg-slate-900 text-white rounded-2xl font-black shadow-lg">Print Report</button>
-                    <button onclick="switchView('admin')" class="px-8 py-4 border-2 border-slate-100 rounded-2xl font-bold">Back</button>
+                <!-- Verified Stamp -->
+                <div class="mt-16 pt-10 border-t border-slate-100 flex justify-between items-center opacity-40 italic font-bold text-[10px]">
+                    <p>SYSTEM TIMESTAMP: MARCH 2026</p>
+                    <p>VERIFIED VIA SCHOOLCONNECT AI ENGINE</p>
                 </div>
             </div>
         </section>
@@ -210,112 +234,112 @@
         const apiKey = ""; // Managed by environment
         lucide.createIcons();
 
-        let database = JSON.parse(localStorage.getItem('sc_true_db')) || [];
+        // 💾 KY-SMS DATABASE INITIALIZATION
+        let kydb = JSON.parse(localStorage.getItem('ky_sms_enterprise')) || [
+            { id: 'KY/2026/01', name: 'Bashir Ahmed', cls: 'SS 3 DIAMOND', term: '1st Term', m: 92, e: 88, p: 95, c: 90, avg: 91.3, grade: 'A1' },
+            { id: 'KY/2026/02', name: 'Funke Adebayo', cls: 'SS 2 SILVER', term: '2nd Term', m: 45, e: 52, p: 40, c: 61, avg: 49.5, grade: 'D7' }
+        ];
 
-        // 1. AUTO CALCULATION ENGINE
-        function calculate() {
-            const m = parseFloat(document.getElementById('m').value) || 0;
-            const e = parseFloat(document.getElementById('e').value) || 0;
-            const s = parseFloat(document.getElementById('s').value) || 0;
-            const c = parseFloat(document.getElementById('c').value) || 0;
+        // 🧮 CALCULATION ENGINE
+        function calc() {
+            const m = parseInt(document.getElementById('m').value) || 0;
+            const e = parseInt(document.getElementById('e').value) || 0;
+            const p = parseInt(document.getElementById('p').value) || 0;
+            const c = parseInt(document.getElementById('c').value) || 0;
 
-            const total = m + e + s + c;
-            const avg = (total / 4).toFixed(1);
-            
-            document.getElementById('auto-total').innerText = total;
-            document.getElementById('auto-avg').innerText = avg;
+            const avg = ((m + e + p + c) / 4).toFixed(1);
+            document.getElementById('live-avg').innerText = avg + '%';
 
-            let remark = "FAIL";
-            if(avg >= 75) remark = "DISTINCTION";
-            else if(avg >= 60) remark = "CREDIT";
-            else if(avg >= 45) remark = "PASS";
+            let g = 'F9';
+            if(avg >= 75) g = 'A1';
+            else if(avg >= 70) g = 'B2';
+            else if(avg >= 65) g = 'B3';
+            else if(avg >= 60) g = 'C4';
+            else if(avg >= 55) g = 'C5';
+            else if(avg >= 50) g = 'C6';
+            else if(avg >= 45) g = 'D7';
+            else if(avg >= 40) g = 'E8';
 
-            document.getElementById('auto-remark').innerText = remark;
-            return { total, avg, remark };
+            document.getElementById('live-grade').innerText = g;
+            document.getElementById('live-grade').className = `font-black italic ${avg >= 50 ? 'text-emerald-300' : 'text-rose-300'}`;
+            return { avg, g };
         }
 
-        // 2. VIEW SWITCHER
-        function switchView(view) {
-            document.getElementById('admin-view').classList.toggle('hidden', view !== 'admin');
-            document.getElementById('parent-view').classList.toggle('hidden', view !== 'parent');
-            document.getElementById('report-card').classList.add('hidden');
-            
-            document.getElementById('nav-admin').className = view === 'admin' ? 
-                'px-6 py-2 rounded-xl font-bold text-sm bg-blue-50 text-blue-700' : 'px-6 py-2 rounded-xl font-bold text-sm text-slate-500 hover:bg-slate-100';
-            document.getElementById('nav-parent').className = view === 'parent' ? 
-                'px-6 py-2 rounded-xl font-bold text-sm bg-blue-50 text-blue-700' : 'px-6 py-2 rounded-xl font-bold text-sm text-slate-500 hover:bg-slate-100';
-            
-            if(view === 'admin') renderLedger();
-        }
+        // 🚀 DATABASE OPERATIONS
+        function saveToSMS() {
+            const name = document.getElementById('s_name').value;
+            const id = document.getElementById('s_id').value.toUpperCase();
+            const cls = document.getElementById('s_class').value;
+            const term = document.getElementById('s_term').value;
 
-        // 3. DATA PERSISTENCE
-        function saveRecord() {
-            const name = document.getElementById('stuName').value;
-            const id = document.getElementById('stuID').value.toUpperCase();
-            if(!name || !id) return alert("Please input Name and ID");
+            if(!name || !id) return alert("Please fill Student Details");
 
-            const stats = calculate();
+            const metrics = calc();
             const record = {
-                id, name, 
-                scores: { m: document.getElementById('m').value, e: document.getElementById('e').value, s: document.getElementById('s').value, c: document.getElementById('c').value },
-                total: stats.total, 
-                avg: stats.avg, 
-                remark: stats.remark
+                id, name, cls, term, 
+                m: document.getElementById('m').value,
+                e: document.getElementById('e').value,
+                p: document.getElementById('p').value,
+                c: document.getElementById('c').value,
+                avg: metrics.avg,
+                grade: metrics.g
             };
 
-            database = database.filter(item => item.id !== id); // Prevent dupe IDs
-            database.push(record);
-            localStorage.setItem('sc_true_db', JSON.stringify(database));
+            // KY-SMS LOGIC: Update existing or push new
+            kydb = kydb.filter(x => x.id !== id || x.term !== term);
+            kydb.push(record);
+            localStorage.setItem('ky_sms_enterprise', JSON.stringify(kydb));
             
-            renderLedger();
-            showFullReport(record);
+            renderBroadsheet();
+            showResultView(record);
         }
 
-        function renderLedger() {
-            const body = document.getElementById('ledgerBody');
-            const empty = document.getElementById('emptyNote');
-            
-            if(database.length === 0) {
-                empty.classList.remove('hidden');
-                body.innerHTML = '';
-            } else {
-                empty.classList.add('hidden');
-                body.innerHTML = database.map(r => `
-                    <tr class="hover:bg-slate-50 transition-all group">
-                        <td class="px-6 py-4">
-                            <div class="text-blue-900">${r.name}</div>
-                            <div class="text-[10px] text-slate-400 font-mono">${r.id}</div>
-                        </td>
-                        <td class="px-6 py-4">${r.total}</td>
-                        <td class="px-6 py-4">
-                            <span class="px-2 py-1 rounded text-[10px] font-black ${r.avg > 45 ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">${r.remark}</span>
-                        </td>
-                        <td class="px-6 py-4 text-right">
-                            <button onclick="viewFromLedger('${r.id}')" class="p-2 bg-slate-100 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-all">
-                                <i data-lucide="eye" class="w-4 h-4"></i>
-                            </button>
-                        </td>
-                    </tr>
-                `).reverse().join('');
-            }
+        function renderBroadsheet() {
+            const body = document.getElementById('sms-body');
+            body.innerHTML = kydb.map(s => `
+                <tr class="hover:bg-slate-50 transition-colors group">
+                    <td class="px-6 py-4 font-mono text-blue-600">#${s.id}</td>
+                    <td class="px-6 py-4">${s.name}</td>
+                    <td class="px-6 py-4 text-slate-400 font-bold">${s.term}</td>
+                    <td class="px-6 py-4">${s.avg}%</td>
+                    <td class="px-6 py-4"><span class="${s.avg >= 50 ? 'text-emerald-600' : 'text-rose-600'}">${s.grade}</span></td>
+                    <td class="px-6 py-4 text-right">
+                        <button onclick="checkResultByID('${s.id}')" class="p-2 bg-slate-100 rounded-lg group-hover:bg-blue-600 group-hover:text-white transition-all"><i data-lucide="external-link" class="w-4 h-4"></i></button>
+                    </td>
+                </tr>
+            `).reverse().join('');
             lucide.createIcons();
         }
 
-        async function showFullReport(record) {
+        // 👁️ VIEW CONTROLLERS
+        function switchMode(mode) {
+            document.getElementById('admin-view').classList.toggle('hidden', mode !== 'admin');
+            document.getElementById('parent-view').classList.toggle('hidden', mode !== 'parent');
+            document.getElementById('report-card').classList.add('hidden');
+            
+            document.getElementById('btn-admin').className = mode === 'admin' ? 
+                'px-5 py-2 rounded-lg font-bold text-xs bg-white shadow-sm text-blue-700' : 'px-5 py-2 rounded-lg font-bold text-xs text-slate-500';
+            document.getElementById('btn-parent').className = mode === 'parent' ? 
+                'px-5 py-2 rounded-lg font-bold text-xs bg-white shadow-sm text-blue-700' : 'px-5 py-2 rounded-lg font-bold text-xs text-slate-500';
+        }
+
+        async function showResultView(student) {
             document.getElementById('admin-view').classList.add('hidden');
             document.getElementById('parent-view').classList.add('hidden');
             document.getElementById('report-card').classList.remove('hidden');
 
-            document.getElementById('r-name').innerText = record.name;
-            document.getElementById('r-id').innerText = `#${record.id}`;
-            document.getElementById('r-total').innerText = record.total;
-            document.getElementById('r-avg').innerText = record.avg;
-            
-            document.getElementById('r-ai').innerText = "Analyzing academic profile...";
-            
-            // 4. AUTO-COMMENT AI GENERATOR
-            const prompt = `Student: ${record.name}. Avg: ${record.avg}%. Remark: ${record.remark}. 
-            Provide a short principal's comment and suggest a 3MTT track (UIUX, Software, Data, or Cyber). Max 50 words.`;
+            document.getElementById('r-name').innerText = student.name;
+            document.getElementById('r-id').innerText = `#${student.id}`;
+            document.getElementById('r-term').innerText = student.term;
+            document.getElementById('r-class').innerText = `Class: ${student.cls}`;
+            document.getElementById('r-avg').innerText = student.avg + '%';
+            document.getElementById('r-grade').innerText = student.grade;
+            document.getElementById('r-grade').className = `text-4xl font-black ${student.avg >= 50 ? 'text-emerald-600' : 'text-rose-600'}`;
+
+            // AI Integration
+            document.getElementById('r-ai').innerText = "Generating KY-SMS AI insights...";
+            const prompt = `Analyze: ${student.name}. Average: ${student.avg}%. Grade: ${student.grade}. 
+            Identify the best 3MTT tech track (UIUX, Cyber, Software, or Data). Add a professional comment. Max 50 words.`;
 
             try {
                 const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
@@ -326,34 +350,34 @@
                 const data = await response.json();
                 const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
                 document.getElementById('r-ai').innerText = text;
-                document.getElementById('r-path').innerText = text.includes("Data") ? "Data Science" : text.includes("UX") ? "UI/UX Design" : "Digital Literacy";
+                document.getElementById('r-path').innerText = text.includes("Data") ? "Data Science" : text.includes("UI") ? "UI/UX Design" : "Software Development";
             } catch (e) {
-                document.getElementById('r-ai').innerText = "Consistent effort leads to mastery. Well done.";
+                document.getElementById('r-ai').innerText = "Excellent academic focus. Continue working towards your goals.";
             }
         }
 
-        function parentCheck() {
-            const val = document.getElementById('p-search').value.trim().toUpperCase();
-            const record = database.find(r => r.id === val);
-            if(record) showFullReport(record);
-            else alert("Registration ID not found in system.");
+        function checkResult() {
+            const query = document.getElementById('p_query').value.trim().toUpperCase();
+            const match = kydb.find(s => s.id === query);
+            if(match) showResultView(match);
+            else alert("Record not found in KY-SMS Database.");
         }
 
-        function viewFromLedger(id) {
-            const record = database.find(r => r.id === id);
-            showFullReport(record);
+        function checkResultByID(id) {
+            const match = kydb.find(s => s.id === id);
+            showResultView(match);
         }
 
-        function clearDB() {
-            if(confirm("Wipe all school records?")) {
-                database = [];
-                localStorage.removeItem('sc_true_db');
-                renderLedger();
+        function clearAll() {
+            if(confirm("Confirm: Delete all Enterprise Database records?")) {
+                kydb = [];
+                localStorage.removeItem('ky_sms_enterprise');
+                renderBroadsheet();
             }
         }
 
         // Init
-        renderLedger();
+        renderBroadsheet();
     </script>
 </body>
 </html>
