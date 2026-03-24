@@ -1,36 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Dashboard</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Dashboard - SchoolConnect AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="portal-container">
+<div class="dashboard-layout">
 
-<h2>📊 Dashboard</h2>
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h2>SchoolConnect</h2>
+    <ul>
+      <li><a href="#">🏠 Dashboard</a></li>
+      <li><a href="#">👨‍🏫 Teachers</a></li>
+      <li><a href="#">🎓 Students</a></li>
+      <li><a href="#">📝 CBT Exams</a></li>
+      <li><a href="#">📊 Results</a></li>
+      <li><a href="#">⚙ Settings</a></li>
+    </ul>
+  </aside>
 
-<p id="welcome"></p>
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <h1>Dashboard</h1>
 
-<h3>🎯 Actions</h3>
+    <div class="cards">
+      <div class="card">Total Students</div>
+      <div class="card">Total Teachers</div>
+      <div class="card">Active Exams</div>
+      <div class="card">Results Uploaded</div>
+    </div>
 
-<a href="quiz.html"><button>🧠 Take CBT</button></a>
-<a href="result.html"><button>🧾 View Result</button></a>
-<a href="portal.html"><button>🏠 Home</button></a>
+  </main>
 
 </div>
-
-<script>
-let name = localStorage.getItem("studentName");
-
-if (!name) {
-    alert("Login first");
-    window.location.href = "login.html";
-}
-
-document.getElementById("welcome").innerText = "Welcome " + name;
-</script>
 
 </body>
 </html>
