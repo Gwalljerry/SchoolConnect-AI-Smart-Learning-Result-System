@@ -1,60 +1,22 @@
-let approved = localStorage.getItem("teacherApproved");
+function save() {
 
-if (approved !== "true") {
-    alert("Access denied. Admin approval required.");
-    window.location.href = "portal.html";
-}
-function saveResult() {
-
-    let name = document.getElementById("studentName").value;
-    let studentClass = document.getElementById("studentClass").value;
-
-    if (!name) {
-        alert("Enter student name");
-        return;
-    }
-
-    function getTotal(prefix) {
-        let ca1 = Number(document.getElementById(prefix + "_ca1").value) || 0;
-        let ca2 = Number(document.getElementById(prefix + "_ca2").value) || 0;
-        let exam = Number(document.getElementById(prefix + "_exam").value) || 0;
-        return { ca1, ca2, exam, total: ca1 + ca2 + exam };
-    }
-
-    let subjects = {
-        English: getTotal("eng"),
-        Mathematics: getTotal("math"),
-        Science: getTotal("sci"),
-        Civic: getTotal("civ")
-    };
-
-    let totalScore = 0;
-    let count = 0;
-
-    for (let sub in subjects) {
-        totalScore += subjects[sub].total;
-        count++;
-    }
-
-    let average = totalScore / count;
-
-    let result = {
-        name,
-        class: studentClass,
-        subjects,
-        average
-    };
-
-    let admission = prompt("Enter Student Admission Number");
-
-localStorage.setItem("result_" + admission, JSON.stringify(result));
-    alert("Full result saved successfully!");
-}
-let admission = prompt("Enter Student Admission Number");
+let admission = prompt("Enter Admission Number");
 
 let student = localStorage.getItem("student_" + admission);
 
 if (!student) {
-    alert("Student not found. Ask student to register first.");
+    alert("Student not found");
     return;
+}
+
+let result = {
+    subjects: {
+        English: {ca1:10, ca2:10, exam:50, total:70},
+        Math: {ca1:15, ca2:10, exam:50, total:75}
+    }
+};
+
+localStorage.setItem("result_" + admission, JSON.stringify(result));
+
+alert("Saved");
 }
