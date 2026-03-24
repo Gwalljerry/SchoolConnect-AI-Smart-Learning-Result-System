@@ -1,17 +1,17 @@
 function loginUser(event) {
   event.preventDefault();
 
-  let username = document.getElementById("username").value;
+  let username = document.getElementById("username").value.toLowerCase();
   let password = document.getElementById("password").value;
 
-  // SIMPLE DEMO LOGIN
+  // Save logged-in user
+  localStorage.setItem("loggedInUser", username);
+
   if (username === "admin" && password === "1234") {
     window.location.href = "dashboard.html";
   } 
-  else if (username === "student" && password === "1234") {
-    alert("Student login successful");
-  } 
   else {
-    document.getElementById("error").innerText = "Invalid login details!";
+    // Treat any other login as student
+    window.location.href = "my-result.html";
   }
 }
