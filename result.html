@@ -1,48 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Result Checker</title>
-    <link rel="stylesheet" href="style.css">
+<title>Result</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="portal-container">
 
-    <img src="logo.png" class="logo">
+<h2>🧾 Result</h2>
 
-<h2>🏫 SchoolConnect AI Result Sheet</h2>
+<p id="studentInfo"></p>
 
-    <p id="studentInfo"></p>
-<hr>
+<table id="resultTable">
+<tr>
+<th>Subject</th>
+<th>CA1</th>
+<th>CA2</th>
+<th>Exam</th>
+<th>Total</th>
+</tr>
+</table>
 
-<p><strong>Session:</strong> 2025/2026</p>
-<p><strong>Term:</strong> First Term</p>
-    <table border="1" width="100%" id="resultTable">
-        <tr>
-            <th>Subject</th>
-            <th>CA1</th>
-            <th>CA2</th>
-            <th>Exam</th>
-            <th>Total</th>
-        </tr>
-    
-    </table>
-<button onclick="checkResult()">Check Result</button>
-    <h3 id="average"></h3>
-    <h3 id="grade"></h3>
+<h3 id="average"></h3>
+<h3 id="grade"></h3>
 
-    <button onclick="window.print()">🖨️ Print Result</button>
-<hr>
+<button onclick="window.print()">Print</button>
 
-<p>Class Teacher Signature: __________________</p>
-<p>Principal Signature: __________________</p>
 </div>
 
 <script src="result.js"></script>
 
 </body>
 </html>
-    <p>© 2026 SchoolConnect AI | Built by Gwall</p>
-</footer>
