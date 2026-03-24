@@ -8,80 +8,49 @@ let questions = [
         question: "Capital of Nigeria?",
         options: ["Lagos", "Abuja", "Kano", "Kaduna"],
         answer: "Abuja"
-    },
-    {
-        question: "HTML stands for?",
-        options: [
-            "Hyper Text Markup Language",
-            "High Tech Machine Language",
-            "Home Tool Mark Language",
-            "None"
-        ],
-        answer: "Hyper Text Markup Language"
     }
 ];
 
-let currentIndex = 0;
+let index = 0;
 let score = 0;
-let selectedAnswer = null;
+let selected = null;
 
 function loadQuestion() {
-    let q = questions[currentIndex];
+    let q = questions[index];
 
     document.getElementById("question").innerText = q.question;
 
-    let optionsHTML = "";
-
+    let html = "";
     q.options.forEach(opt => {
-        optionsHTML += `
-        <button class="option-btn" onclick="selectAnswer(this, '${opt}')">
-            ${opt}
-        </button><br>`;
+        html += `<button class="option-btn" onclick="select(this,'${opt}')">${opt}</button>`;
     });
 
-    document.getElementById("options").innerHTML = optionsHTML;
-
-    selectedAnswer = null;
+    document.getElementById("options").innerHTML = html;
+    selected = null;
 }
 
-function selectAnswer(button, value) {
-    selectedAnswer = value;
-
-    // remove previous selection
+function select(btn, value) {
+    selected = value;
     let all = document.querySelectorAll(".option-btn");
-    all.forEach(btn => btn.style.background = "#004aad");
-
-    // highlight selected
-    button.style.background = "green";
+    all.forEach(b => b.style.background="#004aad");
+    btn.style.background="green";
 }
 
 function nextQuestion() {
-
-    if (selectedAnswer === null) {
-        alert("Please select an answer");
+    if (!selected) {
+        alert("Select an answer");
         return;
     }
 
-    if (selectedAnswer === questions[currentIndex].answer) {
-        score++;
-    }
+    if (selected === questions[index].answer) score++;
 
-    currentIndex++;
+    index++;
 
-    if (currentIndex < questions.length) {
+    if (index < questions.length) {
         loadQuestion();
     } else {
-
-        document.getElementById("quiz-box").style.display = "none";
-
-        let total = questions.length;
-
-        document.getElementById("result").innerText =
-            "Your Score: " + score + " / " + total;
-
-        // SAVE RESULT
-        localStorage.setItem("lastScore", score);
-        localStorage.setItem("totalQuestions", total);
+        document.getElementById("quiz-box").style.display="none";
+        document.getElementById("result").innerText="Score: "+score;
     }
 }
 
