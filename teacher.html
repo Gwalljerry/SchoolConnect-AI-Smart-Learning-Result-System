@@ -1,57 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Portal</title>
-    <link rel="stylesheet" href="style.css">
+<title>Teacher Panel</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="portal-container">
+<div class="page-wrapper">
 
-    <h2>👨‍🏫 Teacher Result Entry</h2>
+    <div class="portal-container">
 
-    <input type="text" id="studentName" placeholder="Student Name" class="input">
+        <h2>👨‍🏫 Teacher Panel</h2>
 
-    <select id="studentClass" class="input">
-        <option>JS1</option>
-        <option>JS2</option>
-        <option>JS3</option>
-        <option>SS1</option>
-        <option>SS2</option>
-        <option>SS3</option>
-    </select>
-<h3>📚 Enter Subject Scores</h3>
+        <p>Enter student result</p>
 
-<p><strong>English</strong></p>
-<input type="number" id="eng_ca1" placeholder="CA1" class="input">
-<input type="number" id="eng_ca2" placeholder="CA2" class="input">
-<input type="number" id="eng_exam" placeholder="Exam" class="input">
+        <input type="text" id="studentName" class="input" placeholder="Student Name">
 
-<p><strong>Mathematics</strong></p>
-<input type="number" id="math_ca1" class="input">
-<input type="number" id="math_ca2" class="input">
-<input type="number" id="math_exam" class="input">
+        <input type="text" id="admission" class="input" placeholder="Admission Number">
 
-<p><strong>Basic Science</strong></p>
-<input type="number" id="sci_ca1" class="input">
-<input type="number" id="sci_ca2" class="input">
-<input type="number" id="sci_exam" class="input">
+        <button onclick="save()">Save Result</button>
 
-<p><strong>Civic Education</strong></p>
-<input type="number" id="civ_ca1" class="input">
-<input type="number" id="civ_ca2" class="input">
-<input type="number" id="civ_exam" class="input">
-    
-    <button onclick="saveResult()">Save Result</button>
-<p>Ensure correct student name is entered before saving.</p>
+        <a href="portal.html"><button>⬅ Back</button></a>
+
+    </div>
+
 </div>
 
 <script src="teacher.js"></script>
-    
-    <p>© 2026 SchoolConnect AI | Built by Gwall</p>
-</footer>
-    
+
 </body>
 </html>
