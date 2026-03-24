@@ -8,7 +8,12 @@ body {
     align-items: center;
     min-height: 100vh;
 }
-
+.logo {
+    width: 70px;       /* controls size */
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
 /* HERO CENTER */
 .hero {
     text-align: center;
