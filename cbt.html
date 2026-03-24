@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CBT Exam - SchoolConnect AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="cbt-container">
+
+  <h1>CBT Exam</h1>
+
+  <div id="question-box" class="question-box">
+    <p id="question">Loading question...</p>
+
+    <div class="options">
+      <button onclick="checkAnswer(0)">Option 1</button>
+      <button onclick="checkAnswer(1)">Option 2</button>
+      <button onclick="checkAnswer(2)">Option 3</button>
+      <button onclick="checkAnswer(3)">Option 4</button>
+    </div>
+  </div>
+
+  <div class="cbt-footer">
+    <p id="timer">Time Left: 10:00</p>
+  </div>
+
+</div>
+
+<script src="cbt.js"></script>
+
+</body>
+</html>
