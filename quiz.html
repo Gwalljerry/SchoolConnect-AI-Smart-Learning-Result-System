@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Teacher</title>
+<title>CBT Test</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="portal-container">
+<div class="portal-container" id="quiz-box">
 
-<h2>👨‍🏫 Teacher Panel</h2>
+<h2>🧠 CBT Test</h2>
 
-<input id="studentName" class="input" placeholder="Student Name">
+<p id="question"></p>
 
-<button onclick="save()">Save Result</button>
+<div id="options"></div>
+
+<button onclick="nextQuestion()">Next</button>
+
+<h3 id="result"></h3>
+
+<a href="dashboard.html"><button>⬅ Back to Dashboard</button></a>
 
 </div>
 
-<script src="teacher.js"></script>
+<script src="quiz.js"></script>
 
 </body>
 </html>
