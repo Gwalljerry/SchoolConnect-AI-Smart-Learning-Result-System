@@ -1,40 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Student Login</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Login - SchoolConnect AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="portal-container">
+<div class="login-container">
 
-<h2>🎓 Student Login</h2>
+  <form class="login-box" onsubmit="loginUser(event)">
+    <h2>Login</h2>
 
-<input type="text" id="admission" placeholder="Admission Number" class="input">
+    <input type="text" id="username" placeholder="Enter Username" required>
+    <input type="password" id="password" placeholder="Enter Password" required>
 
-<button onclick="login()">Login</button>
+    <button type="submit">Login</button>
+
+    <p id="error" style="color:red;"></p>
+  </form>
 
 </div>
 
-<script>
-function login() {
-    let admission = document.getElementById("admission").value;
-
-    let saved = JSON.parse(localStorage.getItem("student_" + admission));
-
-    if (!saved) {
-        alert("Invalid Admission Number");
-        return;
-    }
-
-    localStorage.setItem("studentName", saved.name);
-    localStorage.setItem("studentClass", saved.class);
-    localStorage.setItem("studentAdmission", admission);
-
-    window.location.href = "dashboard.html";
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
