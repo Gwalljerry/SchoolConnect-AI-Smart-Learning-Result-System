@@ -1,98 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="portal-container">
 
-    <h2>📊 Student Dashboard</h2>
+<h2>📊 Dashboard</h2>
 
-    <p id="welcome"></p>
-    <p id="class"></p>
+<p id="welcome"></p>
 
-    <h3>🧠 Last CBT Result</h3>
-    <p id="score"></p>
-
-    <h3>📈 Performance Analysis</h3>
-<p id="performance"></p>
-
-<h3>🤖 SchoolConnect AI Insight</h3>
-<p id="advice"></p>
-<hr>
-
-<h3>🚀 Quick Actions</h3>
+<h3>🎯 Actions</h3>
 
 <a href="quiz.html"><button>🧠 Take CBT</button></a>
 <a href="result.html"><button>🧾 View Result</button></a>
-<a href="portal.html"><button>🏠 Back to Portal</button></a>
- <hr>
+<a href="portal.html"><button>🏠 Home</button></a>
 
-<h3>🎯 What do you want to do?</h3>
-
-<a href="quiz.html"><button>🧠 Take CBT</button></a>
-<a href="result.html"><button>🧾 Check Result</button></a>
-<a href="portal.html"><button>🏠 Home</button></a>   
 </div>
 
 <script>
+let name = localStorage.getItem("studentName");
 
-    let name = localStorage.getItem("studentName");
-    let studentClass = localStorage.getItem("studentClass");
-
-    let score = localStorage.getItem("lastScore");
-    let total = localStorage.getItem("totalQuestions");
-
-    if (!name) {
-        window.location.href = "login.html";
-    }
-
-    document.getElementById("welcome").innerText = "Welcome, " + name;
-    document.getElementById("class").innerText = "Class: " + studentClass;
-
-    // If no test taken
-    if (!score) {
-        document.getElementById("score").innerText = "No test taken yet.";
-    } else {
-
-        document.getElementById("score").innerText = score + " / " + total;
-
-        let percent = (score / total) * 100;
-
-        let performance = "";
-        let advice = "";
-
-        if (percent >= 75) {
-            performance = "Excellent 🎉";
-            advice = "Outstanding performance! Keep pushing forward.";
-        } else if (percent >= 50) {
-            performance = "Good 👍";
-            advice = "You're doing well, but more practice will help you improve.";
-        } else {
-            performance = "Needs Improvement ⚠️";
-            advice = "You need to focus more. Practice regularly and revise your notes.";
-        }
-
-        document.getElementById("performance").innerText = performance;
-        document.getElementById("advice").innerText = advice;
-    }
-
-/.option-btn {
-    margin: 8px;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background: #004aad;
-    color: white;
-    width: 90%;
+if (!name) {
+    alert("Login first");
+    window.location.href = "login.html";
 }
+
+document.getElementById("welcome").innerText = "Welcome " + name;
+</script>
 
 </body>
 </html>
-<p>© 2026 SchoolConnect AI | Built by Gwall</p>
-</footer>
-    
