@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBT Exam</title>
-    <link rel="stylesheet" href="style.css">
+<title>CBT</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="portal-container">
+<div class="portal-container" id="quiz-box">
 
-    <h2>🧠 CBT Practice</h2>
+<h2>🧠 CBT Test</h2>
 
-    <div id="quiz-box">
-        <p id="question"></p>
+<p id="question"></p>
 
-        <div id="options"></div>
+<div id="options"></div>
 
-        <button onclick="nextQuestion()">Next</button>
-    </div>
+<button onclick="nextQuestion()">Next</button>
 
-    <h3 id="result"></h3>
-<br>
-<a href="dashboard.html"><button>⬅ Back to Dashboard</button></a>
+<h3 id="result"></h3>
+
+<a href="dashboard.html"><button>⬅ Back</button></a>
+
 </div>
 
 <script src="quiz.js"></script>
