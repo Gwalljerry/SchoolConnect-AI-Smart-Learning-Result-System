@@ -226,3 +226,32 @@ body {
   margin-top: 10px;
   font-weight: bold;
 }
+/* TEACHER RESULT UPLOAD */
+.upload-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.result-table th, .result-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.result-table th {
+  background: #0a2a66;
+  color: white;
+}
+
+.result-table input {
+  width: 80px;
+  padding: 5px;
+  text-align: center;
+}
