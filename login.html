@@ -1,43 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login</title>
-    <link rel="stylesheet" href="style.css">
+<title>Student Login</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="portal-container">
 
-    <h2>👨‍🎓 Student Login</h2>
+<h2>🎓 Student Login</h2>
 
-    <!-- Name Input -->
-    <input type="text" id="admission" placeholder="Enter Admission Number" class="input">
-    <!-- Class Selection -->
-    <select id="class" class="input">
-        <option value="">Select Class</option>
-        <option>JS1</option>
-        <option>JS2</option>
-        <option>JS3</option>
-        <option>SS1</option>
-        <option>SS2</option>
-        <option>SS3</option>
-    </select>
+<input type="text" id="admission" placeholder="Admission Number" class="input">
 
-    <!-- Login Button -->
-    <button onclick="login()">Login</button>
-
-    <!-- Link to Signup -->
-    <p>No account? <a href="signup.html">Sign Up</a></p>
+<button onclick="login()">Login</button>
 
 </div>
 
-<!-- Connect JavaScript -->
-<script src="script.js"></script>
+<script>
+function login() {
+    let admission = document.getElementById("admission").value;
+
+    let saved = JSON.parse(localStorage.getItem("student_" + admission));
+
+    if (!saved) {
+        alert("Invalid Admission Number");
+        return;
+    }
+
+    localStorage.setItem("studentName", saved.name);
+    localStorage.setItem("studentClass", saved.class);
+    localStorage.setItem("studentAdmission", admission);
+
+    window.location.href = "dashboard.html";
+}
+</script>
 
 </body>
 </html>
-<footer>
-    <p>© 2026 SchoolConnect AI | Built by Gwall</p>
-</footer>
